@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   respond_to :html
 
   def index
-    @tasks = Task.all.order(:end_date)
+    @tasks = Task.all.order(end_date: :desc)
   end
 
   def show
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Post was successfully created.' }
+        format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -36,7 +36,7 @@ end
     @task.update(task_params)
     respond_to do |format|
       if @task.update(post_params)
-        format.html { redirect_to @task, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -47,7 +47,7 @@ end
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to posts_url, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

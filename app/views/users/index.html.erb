@@ -1,3 +1,5 @@
+<% if user_signed_in? %>
+
 <h1>Listing users</h1>
 
 <table>
@@ -18,7 +20,7 @@
         <td><%= user.lastname %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!--<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></t>-->
       </tr>
     <% end %>
   </tbody>
@@ -27,3 +29,10 @@
 <br>
 
 <%= link_to 'New User', new_user_path %>
+<% else %>
+
+<h2>To see this, you must log in first</h2>
+
+<%=link_to "Log in ", new_user_session_path =%>
+
+<% end %>
