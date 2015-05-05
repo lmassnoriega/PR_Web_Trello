@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   respond_to :html
 
   def index
-    @tasks = Task.all.order(end_date: :desc)
+    @tasks = Task.all.order(coompleted: :asc).order(end_date: :desc)
   end
 
   def show

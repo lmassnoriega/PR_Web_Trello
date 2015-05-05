@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150429040035) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.boolean  "coompleted"
-    t.integer  "author"
+    t.string   "author"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

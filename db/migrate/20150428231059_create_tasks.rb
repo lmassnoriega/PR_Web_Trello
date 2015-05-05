@@ -7,7 +7,7 @@ class CreateTasks < ActiveRecord::Migration
       t.datetime :start_date
       t.datetime :end_date
       t.boolean :coompleted
-      t.integer :author
+      t.string :author
 
       t.timestamps
     end
